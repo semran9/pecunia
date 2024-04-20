@@ -1,4 +1,5 @@
 {
+  "proxy": "http://localhost:2309",
   "name": "pecunia",
   "version": "1.0.0",
   "description": "A personal financial agent, utilizing Whiper, RVC and LLama 3. ",
