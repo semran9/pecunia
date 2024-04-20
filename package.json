@@ -1,0 +1,23 @@
+{
+  "name": "pecunia",
+  "version": "1.0.0",
+  "description": "A personal financial agent, utilizing Whiper, RVC and LLama 3. ",
+  "main": "index.js",
+  "scripts": {
+    "test": "tpq"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/semran9/pecunia.git"
+  },
+  "author": "semran, iamin, tbabar, eobrien",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/semran9/pecunia/issues"
+  },
+  "homepage": "https://github.com/semran9/pecunia#readme",
+  "dependencies": {
+    "express": "^4.19.2",
+    "hbs": "^4.2.0"
+  }
+}
