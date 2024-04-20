@@ -12,7 +12,7 @@ class Assistant():
         if self.l != "en":
            question = translate(question)
         response = get_response(question)
-        response = voice(response)
+        # response = voice(response)
         print(response)
 
 if __name__ == "__main__":
