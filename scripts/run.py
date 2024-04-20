@@ -28,11 +28,11 @@ class Assistant():
         response = voice(response)
 
 if __name__ == "__main__":
-    start = time.time()
+    # start = time.time()
     ast = Assistant("english")
-    ast.run("data/test.mp3")
-    end = time.time()
-    print(start-end)
+    ast.run("data/output.wav")
+    # end = time.time()
+    # print(start-end)
 
 
         
