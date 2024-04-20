@@ -9,7 +9,7 @@ headers = {
 }
 data = {
   "text": "Born and raised in the charming south, I can add a touch of sweet southern hospitality to your audiobooks and podcasts",
-  "model_id": "oskar",
+  "model_id": "eleven_turbo_v2",
   "voice_settings": {
     "stability": 0.36,
     "similarity_boost": 1,
@@ -20,7 +20,7 @@ data = {
 
 
 
-def voice(text):
+def voice(text = None):
     if text != None:
         data["text"] = text
     response = requests.post(url, json=data, headers=headers)
@@ -31,5 +31,5 @@ def voice(text):
 
 
 if __name__ == "__main__":
-    voice("Hello")
+    voice()
     

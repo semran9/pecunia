@@ -1,7 +1,7 @@
 from llama import get_response
 from text_to_voice import voice
 from translation import translate
-
+import time
 from whisp import transcribe
 
 class Assistant():
@@ -12,13 +12,15 @@ class Assistant():
         if self.l != "en":
            question = translate(question)
         response = get_response(question)
-        # response = voice(response)
+        response = voice(response)
         print(response)
 
 if __name__ == "__main__":
-
+    start = time.time()
     ast = Assistant("english")
-    ast.run("data/output.mp3")
+    ast.run("data/test.mp3")
+    end = time.time()
+    print(start-end)
 
 
         
