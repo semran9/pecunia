@@ -6,6 +6,9 @@ var bodyParser = require('body-parser');
 var path = require('path');
 var app = express();
 
+//Imports first and second page comps
+var FirstPage = require('./firstpage.js')
+var SecondPage = require('./secondpage.js')
 app.set('view engine','hbs')
 
 // routes
@@ -15,6 +18,16 @@ app.set('view engine','hbs')
 app.use(express.json());
 app.use(express.urlencoded({ extended: true}));
 app.use(express.static('static_files'))
+
+// Route for the FirstPage component
+app.get('/', function (req, res) {
+    res.send('<h1>First Page</h1>');
+  });
+  
+  // Route for the SecondPage component
+  app.get('/second', function (req, res) {
+    res.send('<h1>Second Page</h1>');
+  });
 
 app.get('/', function (req, res) {
   res.send('pecunia')
