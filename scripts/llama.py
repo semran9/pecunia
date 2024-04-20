@@ -8,6 +8,9 @@ def llama_call(prompt):
 def get_prompt(question):
     file = open("data/prompt.txt", "r")
     content = file.read()
+    # replace var_names with variables
+    for v in vars:
+        content = content.replace(v[0], v[1])
     return content
 
 def get_response(question):
