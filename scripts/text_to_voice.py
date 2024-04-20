@@ -9,7 +9,7 @@ headers = {
 }
 data = {
   "text": "Born and raised in the charming south, I can add a touch of sweet southern hospitality to your audiobooks and podcasts",
-  "model_id": "eleven_turbo_v2",
+  "model_id": "eleven_multilingual_v2",
   "voice_settings": {
     "stability": 0.36,
     "similarity_boost": 1,
