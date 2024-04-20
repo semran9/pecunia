@@ -1,0 +1,12 @@
+name: Michael Johnson
+cs: 720
+age: 30
+t1: $120.00 on tech gadgets online
+t2: $80.00 at a local electronics store
+t3: $200.00 car maintenance
+t4: $50.00 at a steakhouse
+t5: $25.00 on streaming service subscription
+income: $70,000 annually
+debt: $28,000 (car loan and credit card)
+balance: $4,500
+occupation: Software Developer
