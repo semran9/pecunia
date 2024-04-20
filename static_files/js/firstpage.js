@@ -5,7 +5,7 @@ import { ReactMic } from 'react-mic';
 
 const FirstPage = () => {
   const [isRecording, setIsRecording] = useState(false);
-  const [buttonColor, setButtonColor] = useState('red');
+  const [buttonColor, setButtonColor] = useState('white');
   const [audioData, setAudioData] = useState(null);
   const history = useHistory();
 
@@ -48,11 +48,18 @@ const FirstPage = () => {
   };
 
   return (
-    <div>
-      <h1>First Page</h1>
-      <button style={{ backgroundColor: buttonColor }} onClick={handleButtonClick}>
+    <div style={{ position: 'relative', display: 'inline-block' }}>
+      <button
+        style={{ backgroundColor: buttonColor, color: 'black', position: 'relative', zIndex: 1 }}
+        onClick={handleButtonClick}
+      >
         {isRecording ? 'Stop Recording' : 'Start Recording'}
       </button>
+      <img
+        src="overlay-image.png" // Replace with your overlay image path
+        alt="Overlay Image"
+        style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0 }}
+      />
       {isRecording && <ReactMic record={isRecording} onData={onData} onStop={onStop} />}
     </div>
   );
