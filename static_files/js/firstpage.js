@@ -48,19 +48,22 @@ const FirstPage = () => {
   };
 
   return (
-    <div style={{ position: 'relative', display: 'inline-block' }}>
-      <button
-        style={{ backgroundColor: buttonColor, color: 'black', position: 'relative', zIndex: 1 }}
-        onClick={handleButtonClick}
-      >
-        {isRecording ? 'Stop Recording' : 'Start Recording'}
-      </button>
-      <img
-        src="overlay-image.png" // Replace with your overlay image path
-        alt="Overlay Image"
-        style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0 }}
-      />
-      {isRecording && <ReactMic record={isRecording} onData={onData} onStop={onStop} />}
+    <div>
+      <img src="top-image.png" alt="Top Image" className="top-image" />
+      <div style={{ position: 'relative', display: 'inline-block' }}>
+        <button
+          style={{ backgroundColor: buttonColor, color: 'black', position: 'relative', zIndex: 1 }}
+          onClick={handleButtonClick}
+        >
+          {isRecording ? 'Stop Recording' : 'Start Recording'}
+        </button>
+        <img
+          src="overlay-image.png" // Replace with your overlay image path
+          alt="Overlay Image"
+          style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0 }}
+        />
+        {isRecording && <ReactMic record={isRecording} onData={onData} onStop={onStop} />}
+      </div>
     </div>
   );
 };

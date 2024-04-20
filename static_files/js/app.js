@@ -1,6 +1,6 @@
 // src/App.js
 import React from "react";
-import TopImage from './TopImage';
+import TopImage from './topimage';
 import './App.css'; // Import CSS file for styling
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import FirstPage from "./recording";
