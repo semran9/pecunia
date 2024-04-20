@@ -23,6 +23,8 @@ class Assistant():
         response = get_response(question)
         if self.l != "en":
             response = self.translator.translate_text(response, target_lang = self.l).text
+        with open("response.txt", "w") as text_file:
+            text_file.write(response)
         response = voice(response)
         print(response)
 
