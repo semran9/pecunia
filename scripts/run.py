@@ -8,8 +8,8 @@ class Assistant():
     def __init__(self, language):
         self.l = language
     def run(self, audio):
-        question = transcribe(audio)
-        if self.l == "spanish":
+        question, self.l = transcribe(audio)
+        if self.l != "en":
            question = translate(question)
         response = get_response(question)
         # response = voice(response)
