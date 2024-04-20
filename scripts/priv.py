@@ -8,13 +8,14 @@ model_checkpoint = "Davlan/bert-base-multilingual-cased-ner-hrl"
 tokenizer = AutoTokenizer.from_pretrained(model_checkpoint)
 model = AutoModelForTokenClassification.from_pretrained(model_checkpoint)
 
-
 class TokenClassificationChunkPipeline(TokenClassificationPipeline):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-    def preprocess(self, sentence, offset_mapping=None):
-        model_inputs = self.tokenizer(
+    def preprocess(self, sentence, offset_mapping=None, **preprocess_params):
+        tokenizer_params = preprocess_params.pop("tokenizer_params", {})
+        truncation = True if self.tokenizer.model_max_length and self.tokenizer.model_max_length > 0 else False
+        inputs = self.tokenizer(
             sentence,
             return_tensors="pt",
             truncation=True,
@@ -24,34 +25,40 @@ class TokenClassificationChunkPipeline(TokenClassificationPipeline):
             max_length=self.tokenizer.model_max_length,
             padding=True
         )
-        if offset_mapping:
-            model_inputs["offset_mapping"] = offset_mapping
+        #inputs.pop("overflow_to_sample_mapping", None)
+        num_chunks = len(inputs["input_ids"])
 
-        model_inputs["sentence"] = sentence
-
-        return model_inputs
+        for i in range(num_chunks):
+            if self.framework == "tf":
+                model_inputs = {k: tf.expand_dims(v[i], 0) for k, v in inputs.items()}
+            else:
+                model_inputs = {k: v[i].unsqueeze(0) for k, v in inputs.items()}
+            if offset_mapping is not None:
+                model_inputs["offset_mapping"] = offset_mapping
+            model_inputs["sentence"] = sentence if i == 0 else None
+            model_inputs["is_last"] = i == num_chunks - 1
+            yield model_inputs
 
     def _forward(self, model_inputs):
+        # Forward
         special_tokens_mask = model_inputs.pop("special_tokens_mask")
         offset_mapping = model_inputs.pop("offset_mapping", None)
         sentence = model_inputs.pop("sentence")
+        is_last = model_inputs.pop("is_last")
+
         overflow_to_sample_mapping = model_inputs.pop("overflow_to_sample_mapping")
 
-        all_logits = torch.Tensor()
-        num_chunks = len(model_inputs["input_ids"])
+        output = self.model(**model_inputs)
+        logits = output["logits"] if isinstance(output, dict) else output[0]
 
-        # Pass one chunk at a time to the model and concatenate the results
-        for i in range(num_chunks):
-            model_input = {k: torch.unsqueeze(v[i], dim=0) for k, v in model_inputs.items()}
-            logits = model(**model_input)[0]
-            all_logits = torch.cat((all_logits, logits), dim=1)
 
         model_outputs = {
-            "logits": all_logits,
+            "logits": logits,
             "special_tokens_mask": special_tokens_mask,
             "offset_mapping": offset_mapping,
             "sentence": sentence,
             "overflow_to_sample_mapping": overflow_to_sample_mapping,
+            "is_last": is_last,
             **model_inputs,
         }
 
@@ -78,7 +85,7 @@ def anonymize(text):
 
     return "".join(split_text)
 
-
-text = "Bernard works at BNP Paribas in Paris."
-anonymized_text = anonymize(text)
-print(anonymized_text)
+if __name__ == "__main__":
+    text = "Hello, my name is Joe. I work at Meta AI."
+    text = anonymize(text)
+    print(text)
