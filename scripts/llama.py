@@ -1,4 +1,5 @@
 from meta_ai_api import MetaAI
+from priv import anonymize
 
 def llama_call(prompt):
     ai = MetaAI()
@@ -11,6 +12,8 @@ def get_prompt(question):
     # replace var_names with variables
     for v in vars:
         content = content.replace(v[0], v[1])
+    content = content + " " + question
+    content = anonymize(content)
     return content
 
 def get_response(question):
