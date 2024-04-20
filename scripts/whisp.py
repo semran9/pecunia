@@ -4,6 +4,8 @@ def transcribe(filename='output.wav'):
     model = whisper.load_model("tiny")  # You can choose other models like 'base', 'medium', 'large'
     # Load and transcribe the audio file
     result = model.transcribe(filename)
+    with open("transcript.txt", "w") as text_file:
+        text_file.write(result["text"])
     return result["text"], result["language"]
 
 if __name__ == "__main__":

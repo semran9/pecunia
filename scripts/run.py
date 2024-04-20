@@ -17,13 +17,13 @@ class Assistant():
     def run(self, audio):
         untranslator = None
         question, self.l = transcribe(audio)
-        print(question)
+        # print(question)
         if self.l != "en":
            question = self.translator.translate_text(question, target_lang = "EN-US").text
         response = get_response(question)
         if self.l != "en":
             response = self.translator.translate_text(response, target_lang = self.l).text
-        # response = voice(response)
+        response = voice(response)
         print(response)
 
 if __name__ == "__main__":
