@@ -30,7 +30,7 @@ class Assistant():
 if __name__ == "__main__":
     start = time.time()
     ast = Assistant("english")
-    ast.run("data/sptest.mp3")
+    ast.run("data/test.mp3")
     end = time.time()
     print(start-end)
 
