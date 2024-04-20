@@ -1,0 +1,14 @@
+1. **Name: Michael Johnson**
+   - **Credit Score:** 720
+   - **Age:** 30
+   - **Past 5 Transactions:**
+     - $120.00 on tech gadgets online
+     - $80.00 at a local electronics store
+     - $200.00 car maintenance
+     - $50.00 at a steakhouse
+     - $25.00 on streaming service subscription
+   - **Income:** $70,000 annually
+   - **Zip Code:** 30303
+   - **Total Debt:** $28,000 (car loan and credit card)
+   - **Total Balance of Bank Account:** $4,500
+   - **Occupation:** Software Developer
