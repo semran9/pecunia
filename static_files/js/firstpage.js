@@ -1,7 +1,7 @@
-// src/components/FirstPage.js
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { ReactMic } from 'react-mic';
+import circularButtonImage from './circular-button.png'; // Import circular button image
 
 const FirstPage = () => {
   const [isRecording, setIsRecording] = useState(false);
@@ -51,16 +51,14 @@ const FirstPage = () => {
     <div>
       <img src="top-image.png" alt="Top Image" className="top-image" />
       <div style={{ position: 'relative', display: 'inline-block' }}>
-        <button
-          style={{ backgroundColor: buttonColor, color: 'black', position: 'relative', zIndex: 1 }}
-          onClick={handleButtonClick}
-        >
+        <button className="circular-button" onClick={handleButtonClick}>
           {isRecording ? 'Stop Recording' : 'Start Recording'}
+          <img src={circularButtonImage} alt="Circular Button" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }} />
         </button>
         <img
           src="overlay-image.png" // Replace with your overlay image path
           alt="Overlay Image"
-          style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0 }}
+          style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
         />
         {isRecording && <ReactMic record={isRecording} onData={onData} onStop={onStop} />}
       </div>
