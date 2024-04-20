@@ -1,21 +1,11 @@
-#!/usr/bin/nodejs
-
-// -------------- load packages -------------- //
-// INITIALIZATION STUFF
-
 var express = require('express')
-var app = express();
-// app.use(require('cookie-parser')());
-
-// // var cookieSession  = require('cookie-session')
-
-// // app.use( cookieSession ({
-// //   name: 'lockbox',
-// //   keys: ['incrediblysecure'],
-// // }));
-
 var hbs = require('hbs')
-// hbs.registerPartials(__dirname + '/views/partials', function (err) {});
+var fs = require('fs');
+var multer = require('multer');
+var bodyParser = require('body-parser');
+var path = require('path');
+var app = express();
+
 app.set('view engine','hbs')
 
 // routes
@@ -30,9 +20,35 @@ app.get('/', function (req, res) {
   res.send('pecunia')
 })
 
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+      const dir = './data';
+      if (!fs.existsSync(dir)){
+          fs.mkdirSync(dir);
+      }
+      cb(null, dir);
+  },
+  filename: function (req, file, cb) {
+      cb(null, 'output.wav');
+  }
+});
+
+const upload = multer({ storage: storage });
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));
+});
+
+app.post('/upload', upload.single('audioData'), (req, res) => {
+    res.send('File uploaded successfully.');
+});
+
 // -------------- listener -------------- //
 // // The listener is what keeps node 'alive.' 
 
-var listener = app.listen(process.env.PORT || 8081, process.env.HOST || "0.0.0.0", function() {
+var listener = app.listen(process.env.PORT || 2309, process.env.HOST || "0.0.0.0", function() {
     console.log("Express server started");
 });

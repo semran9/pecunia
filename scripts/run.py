@@ -2,7 +2,7 @@ from llama import get_response
 from text_to_voice import voice
 from translation import translate
 
-from whisper import transcribe
+from whisp import transcribe
 
 class Assistant():
     def __init__(self, language):
