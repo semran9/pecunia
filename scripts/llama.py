@@ -1,5 +1,6 @@
 from meta_ai_api import MetaAI
 from priv import anonymize
+from translate import Translator
 
 vars = [[]]
 
