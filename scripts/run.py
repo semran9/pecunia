@@ -12,13 +12,13 @@ class Assistant():
         if self.l != "en":
            question = translate(question)
         response = get_response(question)
-        # response = voice(response)
+        response = voice(response)
         print(response)
 
 if __name__ == "__main__":
     start = time.time()
     ast = Assistant("english")
-    ast.run("data/test.mp3")
+    ast.run("data/sptest.mp3")
     end = time.time()
     print(start-end)
 

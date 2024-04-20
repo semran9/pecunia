@@ -8,12 +8,23 @@ def llama_call(prompt):
     response = ai.prompt(message = prompt)
     return response.get("message")
 
+def get_vars():
+    file = open("data/profile.txt", "r")
+    content = file.read()
+    vars = content.split("\n")
+    return vars
+
+
 def get_prompt(question):
     file = open("data/prompt.txt", "r")
     content = file.read()
     # replace var_names with variables
-    #for v in vars:
-    #    content = content.replace(v[0], v[1])
+    vars = get_vars()
+    for v in vars:
+        s = v.split(":")
+        info = s[1]
+        tolk = "[" + s[0] + "]"
+        content = content.replace(tolk, info)
     content = content + " " + question
     content = anonymize(content)
     return content
@@ -24,5 +35,5 @@ def get_response(question):
     return response
  
 if __name__ == "__main__":
-    text = get_response("Hello, who are you? I'm Joe.")
+    text = get_prompt("Hello, who are you? I'm Joe.")
     print(text)
