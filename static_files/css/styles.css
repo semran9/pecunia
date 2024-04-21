@@ -1,31 +1,75 @@
-@import url('https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap');
-
-html, body {
-  height: 100%; /* make sure the body takes full viewport height */
-  margin: 0; /* reset default margin */
-  padding: 0; /* reset default padding */
-  background-color: #f0f0f0;
-  font-family: 'Hammersmith One', sans-serif;
-}
-
+/* styles.css */
+@import url(https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap);
 body {
-  display: flex;
-  flex-direction: column; /* stack items vertically */
-  justify-content: center; /* center items on the vertical axis */
-  align-items: center; /* center items on the horizontal axis */
+  font-family: 'Hammersmith One', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+}
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
-.logo {
-  align-self: center; /* center logo horizontally */
-  margin-top: -100px; /* adjust this value to push the logo to the top */
-  /* add logo image dimensions and other styles if needed */
+.header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
 }
 
-.record-button {
-  /* styles for the record button if needed */
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+body {
+  font-family: 'Hammersmith One', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+  display: flex; /* Use flexbox */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  height: 100vh; /* Make the body fill the viewport height */
+}
+
+.container {
+  max-width: 800px;
+  padding: 20px;
 }
 
 .description {
-  text-align: center;
-  /* additional styling for the description text */
+  display: flex; /* Use flexbox */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  background-color: #f0f0f0; /* Background color */
+  border: 1px solid #ccc; /* Border */
+  border-radius: 5px; /* Border radius */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Box shadow */
+  padding: 10px; /* Add padding for better spacing */
+}
+
+.description p {
+  font-size: 16px;
+  color: #333;
+  margin: 0; /* Remove default margin */
+}
+
+
+.microphone {
+  display: inline-block;
+    padding: 0; /* Remove default padding */
+    background-color: #ffffff; /* Transparent background */
+    border: none; /* Remove border */
+    cursor: pointer;
+    transition: opacity 0.3s ease; /* Smooth transition for opacity */
+}
+microphone img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
 }
