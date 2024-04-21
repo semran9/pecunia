@@ -11,10 +11,10 @@ navigator.mediaDevices.getUserMedia({ audio: true })
     recordButton.onclick = () => {
     if (mediaRecorder.state === 'recording') {
         mediaRecorder.stop();
-        recordButton.textContent = 'Record';
+        window.location = 'results';
     } else {
         mediaRecorder.start();
-        recordButton.textContent = 'Stop';
+        // recordButton.textContent = 'Stop'; REPLACE WITH REGULAR MIC
         audioChunks = [];
     }
     };

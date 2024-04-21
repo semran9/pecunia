@@ -4,6 +4,7 @@ var fs = require('fs');
 var multer = require('multer');
 var bodyParser = require('body-parser');
 var path = require('path');
+const { spawn } = require('child_process');
 var app = express();
 
 var options = {
@@ -24,27 +25,87 @@ app.get('/home', function (req, res) {
   res.render('index')
 })
 
-app.post('/results', function(req,res ) {
-  console.log('loading results');
-  const { spawn } = require('child_process');
-  const pyProg = spawn('python', ['./../run.py']);
+// app.post('/results', function(req,res ) {
+//   console.log('loading results');
+//   const { spawn } = require('child_process');
+//   const pyProg = spawn('python', ['./../run.py']);
+//   pyProg.stdout.on('data', function(data) {
+//       console.log(data.toString());
+//       res.write(data);
+//       // res.end('end');
+//   });
+
+//   fs.readFile('data/transcript.txt', 'utf-8', (err, transcript) => {
+//     if (err) {
+//       console.error(err);
+//       return;
+//     }
+    
+//     res.locals.transcript = transcript;
+//     console.log(transcript);
+//   })
+  
+//   fs.readFile('data/response.txt', 'utf-8', (err, response) => {
+//     if (err) {
+//       console.error(err);
+//       return;
+//     }
+//     res.locals.response = response;
+//     console.log(response);
+//   });
+//   console.log('1')
+
+
+//   console.log('2')
+
+//   var texts = {
+//     'transcript': res.locals.transcript,
+//     'results' : res.locals.response
+//   }
+//   console.log('Response: ')
+//   console.log(res.locals.response)
+//   res.redirect('https://www.youtube.com/watch?v=dQw4w9WgXcQ')
+// });
+app.get('/results', function(req, res) {
+  console.log('Entering /results route');
+  const pyProg = spawn('python', ['scripts/run.py']);
+  let outputData = [];
   pyProg.stdout.on('data', function(data) {
-      console.log(data.toString());
-      res.write(data);
-      res.end('end');
+      console.log('Data from Python:', data.toString());
+      outputData.push(data);
   });
 
-  fs.readFile('/data/transcript.txt', 'utf-8', (err, data) => {
-    if (err) {
-      console.error(err);
-      return;
-    }
-    console.log(data);
-  })
-  
-  res.render('results', )
-})
+  pyProg.on('close', () => {
+      const finalOutput = Buffer.concat(outputData).toString();
+      console.log('Final Python Output:', finalOutput);
 
+      fs.readFile('data/transcript.txt', 'utf-8', (err, transcript) => {
+          if (err) {
+              console.error('Error reading transcript:', err);
+              return res.status(500).send('Failed to read transcript file');
+          }
+
+          fs.readFile('data/response.txt', 'utf-8', (err, response) => {
+              if (err) {
+                  console.error('Error reading response:', err);
+                  return res.status(500).send('Failed to read response file');
+              }
+
+              console.log('Rendering with:', { transcript, response, finalOutput });
+              res.render('results', {
+                  transcript: transcript,
+                  response: response
+              });
+              console.log('wtest')
+          });
+      });
+  });
+
+  pyProg.on('error', (error) => {
+      console.error('Python script error:', error);
+      res.status(500).send('Error executing Python script');
+  });
+});
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
       const dir = './data';
