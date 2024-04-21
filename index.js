@@ -13,14 +13,9 @@ var options = {
 }
 
 //Imports first and second page comps
-// var FirstPage = require('static_files/js/firstpage.js')
-// var SecondPage = require('static_files/js/secondpage.js')
 app.set('view engine','hbs')
 
 // routes
-// const home = require('./routes/home.js')
-// app.use(home);
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true}));
 app.use(express.static('static_files'))
@@ -38,7 +33,16 @@ app.post('/results', function(req,res ) {
       res.write(data);
       res.end('end');
   });
-  res.render('views/results')
+
+  fs.readFile('/data/transcript.txt', 'utf-8', (err, data) => {
+    if (err) {
+      console.error(err);
+      return;
+    }
+    console.log(data);
+  })
+  
+  res.render('results', )
 })
 
 const storage = multer.diskStorage({
@@ -59,9 +63,9 @@ const upload = multer({ storage: storage });
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// app.get('/', (req, res) => {
-//     res.sendFile(path.join(__dirname, 'index.html'));
-// });
+app.get('/', (req, res) => {
+     res.sendFile(path.join(__dirname, 'index.html'));
+});
 
 app.post('/upload', upload.single('audioData'), (req, res) => {
     res.send('File uploaded successfully.');
