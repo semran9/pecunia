@@ -18,8 +18,8 @@ var options = {
 app.set('view engine','hbs')
 
 // routes
-// const home = require('./routes/home.js')
-// app.use(home);
+const home = require('./routes/home.js')
+app.use(home);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true}));
