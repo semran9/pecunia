@@ -59,9 +59,9 @@ const upload = multer({ storage: storage });
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// app.get('/', (req, res) => {
-//     res.sendFile(path.join(__dirname, 'index.html'));
-// });
+app.get('/', (req, res) => {
+     res.sendFile(path.join(__dirname, 'index.html'));
+});
 
 app.post('/upload', upload.single('audioData'), (req, res) => {
     res.send('File uploaded successfully.');
