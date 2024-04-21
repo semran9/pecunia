@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300&family=Titillium+Web:wght@700&display=swap');        html {
+        background-color: #131313;
+        font-family: "Heebo", sans-serif;
+        font-size: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        width: auto;
+        text-align: center;
+        color: white;
+        }
+
+        a.button {
+        text-decoration: none;
+        color: initial;
+        background-color: #967c6c;
+        padding: 15px;
+        filter: drop-shadow(10px 10px 20px #000000);
+        }
+        
+        
+        .navbar {
+          display: flex;
+          flex-wrap: wrap;
+          background-color: #323226;
+          overflow: auto;
+          width: auto;
+          height: 60px;
+          margin-left: -10px;
+          margin-right: -10px;
+          margin-top: -12px;
+        }
+        
+        .navbar a {
+          float: left;
+          vertical-align: bottom;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+          font-size: 17px;
+          color: initial;
+          padding-top: 18px;
+          color: white;
+        }
+        
+        
+        .navbar a:hover {
+          background-color: #7A8067;
+          color: black;
+        }
+        
+        .navbar a.active {
+          background-color: #7A8057;
+          color:black;
+          font-weight: bold;
+        }
+        
+        @keyframes fadeInOpacity {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        
+        a.uc {
+         /* background-color: #755038;*/
+          opacity: 0.8;
+          color:WHITE;
+          text-shadow:
+          -2px -2px 0 #000,
+          2px -2px 0 #000,
+          -2px 2px 0 #000,
+          2px 2px 0 #000;
+          font-weight: bold;
+          background: repeating-linear-gradient( -45deg, #ffe100, #ffe100 5px, #1a1a1a 5px, #1a1a1a 25px );       
+        }
+        
+        .footer {
+          text-align: center;
+          font-size: 10px;
+          clear: both;
+          position: fixed;
+          left: 0;
+          top: 500px;
+          width: 100%;
+        }
+        
+        .table a {
+          display:block;
+          text-decoration: none;
+          color: white;
+          padding: 12px;
+        }
+        
+        .table {
+          border-block-color: white;
+          margin-left: auto;
+          margin-right: auto;
+          float: center;
+        }
+        
+        .labs {
+          float: left;
+          overflow: hidden;
+        }
+        
+        
+        .labs .dropD1 {
+          font-size: 17px;  
+          border: none;
+          outline: none;
+          color: white;
+          padding: 14px 16px;
+          padding-top: 18px;
+          background-color: inherit;
+          font-family: inherit;
+          margin: 0;
+        }
+        
+        .navbar a:hover, .labs:hover .dropD1 {
+          background-color: #7A8067;
+          color: black;
+        }
+        
+        .dropD2 {
+          display: none;
+          position: absolute;
+          background-color: #323226;
+          color: white;
+          min-width: 160px;
+          box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+          z-index: 1;
+        }
+        
+        .dropD2 a {
+          float: none;
+          color: white;
+          padding: 12px 16px;
+          text-decoration: none;
+          display: block;
+          text-align: left;
+        }
+        
+        .dropD2 a:hover {
+          background-color: #ddd;
+        }
+
+        .labs:hover .dropD2 {
+            display: block;
+        }
+        
+        .fadein {
+            opacity: 1;
+            animation-name: fadeInOpacity;
+            animation-iteration-count: 1;
+            animation-timing-function: ease-in;
+            animation-duration: 0.5s;
+        }
+        
+        p {
+            word-wrap: break-word;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        @keyframes fadeInOpacity {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        
+        /*#lftwrd {*/
+        /*    width: 30%;*/
+        /*}*/
+        
+        /*#rghtwrd {*/
+        /*    width: 70%; */
+        /*}*/
+        
+        input[type=text]{
+          background-color: transparent;
+          padding: 12px 20px;
+          margin: 8px 0;
+          box-sizing: border-box;
+        }
+        
+        #word {
+            color: green;
+        }
+        
+        #word2 {
+            color: gray;
+        }
+        
+        #word3 {
+            color: gold;
+        }
+        #word:focus {
+            border: 3px solid green;
+        }
+         
+        #word2:focus {
+            border: 3px solid gray;
+        }
+        
+        #word3:focus {
+            border: 3px solid gold;
+        }
+        
