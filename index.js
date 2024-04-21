@@ -13,14 +13,9 @@ var options = {
 }
 
 //Imports first and second page comps
-var FirstPage = require('static_files/js/firstpage.js')
-var SecondPage = require('static_files/js/secondpage.js')
 app.set('view engine','hbs')
 
 // routes
-const home = require('./routes/home.js')
-app.use(home);
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true}));
 app.use(express.static('static_files'))
