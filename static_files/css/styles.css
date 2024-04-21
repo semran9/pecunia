@@ -35,9 +35,7 @@ body {
   border-radius: 50%; /* Make the button circular */
   outline: none; /* Remove the button outline */
   position: absolute; /* Set position to absolute */
-  top: 20%; /* Adjust the position as needed */
-  left: 50%; /* Center the microphone horizontally */
-  transform: translateX(-50%); /* Center the microphone horizontally */
+  transform: translate(-50%,-50%); /* Center the microphone horizontally */
 }
 
 button {
