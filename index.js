@@ -19,7 +19,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true}));
 app.use(express.static('static_files'))
 
-app.use(express.static(path.resolve(__dirname, '../client/build'))
+// app.use(express.static(path.resolve(__dirname, '../client/build'))
 
 app.get('/', function (req, res) {
   res.send('pecunia')
