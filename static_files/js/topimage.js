@@ -3,7 +3,7 @@ import React from 'react';
 
 const TopImage = () => {
   return (
-    <img src="top-image.png" alt="Top Image" className="top-image" />
+    <img src="static_files\images\pecunia.png" alt="Top Image" className="top-image" />
   );
 }
 
