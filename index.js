@@ -6,6 +6,12 @@ var bodyParser = require('body-parser');
 var path = require('path');
 var app = express();
 
+var options = {
+  headers: {
+      'User-Agent': 'request'
+  }
+}
+
 //Imports first and second page comps
 // var FirstPage = require('static_files/js/firstpage.js')
 // var SecondPage = require('static_files/js/secondpage.js')
@@ -19,10 +25,20 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true}));
 app.use(express.static('static_files'))
 
-app.use(express.static(path.resolve(__dirname, '../client/build'))
+app.get('/home', function (req, res) {
+  res.render('index')
+})
 
-app.get('/', function (req, res) {
-  res.send('pecunia')
+app.post('/results', function(req,res ) {
+  console.log('loading results');
+  const { spawn } = require('child_process');
+  const pyProg = spawn('python', ['./../run.py']);
+  pyProg.stdout.on('data', function(data) {
+      console.log(data.toString());
+      res.write(data);
+      res.end('end');
+  });
+  res.render('views/results')
 })
 
 const storage = multer.diskStorage({
@@ -43,9 +59,9 @@ const upload = multer({ storage: storage });
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
-});
+// app.get('/', (req, res) => {
+//     res.sendFile(path.join(__dirname, 'index.html'));
+// });
 
 app.post('/upload', upload.single('audioData'), (req, res) => {
     res.send('File uploaded successfully.');

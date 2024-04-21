@@ -10,12 +10,12 @@
         <a href="." style="font-size: 20px;"><strong>pecunia</strong></a>
     </div>
     <div>
+        <a href="home">Test Home Page</a><br>
         <button id="recordBtn">Record</button>
     </div>
     <script>
         let mediaRecorder;
         let audioChunks = [];
-
         navigator.mediaDevices.getUserMedia({ audio: true })
         .then(stream => {
             mediaRecorder = new MediaRecorder(stream);
