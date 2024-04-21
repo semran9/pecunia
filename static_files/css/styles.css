@@ -29,6 +29,7 @@ body {
   left: 0; /* Align the element to the left of the viewport */
 }
 
+
 .microphone {
   width: 15vw; /* 10% of the viewport width */
   height: auto; /* Maintain aspect ratio */
