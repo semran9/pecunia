@@ -30,6 +30,7 @@ const SecondPage = ({ location }) => {
       {isLoading ? (
         <div style={{ height: '50%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
           <p>Loading...</p>
+          <img href="./osaka-spin.gif"></img>
         </div>
       ) : (
         <div style={{ textAlign: 'center' }}>

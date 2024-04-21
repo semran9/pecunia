@@ -5,7 +5,7 @@
   "description": "A personal financial agent, utilizing Whiper, RVC and LLama 3. ",
   "main": "index.js",
   "scripts": {
-    "test": "tpq"
+    "test": "tpc"
   },
   "repository": {
     "type": "git",
