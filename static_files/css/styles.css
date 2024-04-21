@@ -1,11 +1,11 @@
 /* styles.css */
+@import url(https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap);
 body {
-  font-family: Hammersmith One;
+  font-family: 'Hammersmith One', sans-serif;
   margin: 0;
   padding: 0;
   background-color: #f0f0f0;
 }
-
 .container {
   max-width: 800px;
   margin: 0 auto;
