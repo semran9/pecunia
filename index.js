@@ -96,6 +96,7 @@ app.get('/results', function(req, res) {
                   transcript: transcript,
                   response: response
               });
+              spawn('python', ['scripts/speak.py']);
               console.log('wtest')
           });
       });
