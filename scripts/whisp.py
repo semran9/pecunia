@@ -9,5 +9,5 @@ def transcribe(filename='output.wav'):
     return result["text"], result["language"]
 
 if __name__ == "__main__":
-    text = transcribe("data/output.mp3")
+    text = transcribe("data/output.wav")
     print(text)
