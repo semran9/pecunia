@@ -19,15 +19,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true}));
 app.use(express.static('static_files'))
 
-// // Route for the FirstPage component
-// app.get('/', function (req, res) {
-//     res.send('<h1>First Page</h1>');
-//   });
-  
-//   // Route for the SecondPage component
-//   app.get('/second', function (req, res) {
-//     res.send('<h1>Second Page</h1>');
-//   });
+app.use(express.static(path.resolve(__dirname, '../client/build'))
 
 app.get('/', function (req, res) {
   res.send('pecunia')
