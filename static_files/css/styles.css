@@ -14,21 +14,11 @@ body {
   position: relative; /* Set position to relative */
 }
 
-<<<<<<< Updated upstream
-.button-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px; /* Adjust margin as needed */
-  position: relative; /* Set position to relative */
-  z-index: 2; /* Ensure button-container is above description */
-}
-
-.description {
-  text-align: center;
-  margin-top: 10%; /* Adjust margin as needed */
-  margin-bottom: 10%; /* Add margin to create space between button and description */
-  z-index: 1; /* Ensure description is below button-container */
+#description {
+  position: absolute;
+  top: 75%; /* Adjusted to 75% from the top */
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .pecunia {
@@ -37,71 +27,8 @@ body {
   position: absolute; /* Position the element relative to the viewport */
   top: 0; /* Align the element to the top of the viewport */
   left: 0; /* Align the element to the left of the viewport */
-  z-index: 3; /* Ensure pecunia is above other elements */
 }
 
-=======
-.header {
-  background-color: #333;
-  color: #fff;
-  padding: 10px;
-  text-align: center;
-  display: flex; /* Use flexbox */
-  justify-content: center; /* Center content horizontally */
-  position: fixed; /* Fixed position for the header */
-  top: calc(25vh - 20px); /* Place the header 25% from the top of the viewport */
-  width: 100%; /* Make the header span the full width of the viewport */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add drop-shadow effect */
-}
-
-.description {
-  display: flex; /* Use flexbox */
-  justify-content: center; /* Center content horizontally */
-  align-items: center; /* Center content vertically */
-  background-color: #f0f0f0; /* Background color */
-  border: 1px solid #ccc; /* Border */
-  border-radius: 5px; /* Border radius */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add drop-shadow effect */
-  padding: 10px; /* Add padding for better spacing */
-  position: fixed; /* Fixed position for the description */
-  top: calc(75vh - 20px); /* Place the description 75% from the top of the viewport */
-  width: calc(100% - 40px); /* Calculate the width */
-}
-
-
-
-
-.footer {
-  background-color: #333;
-  color: #fff;
-  padding: 10px;
-  text-align: center;
-  position: fixed; /* Fixed position for the footer */
-  bottom: 0; /* Place the footer at the bottom of the viewport */
-  width: 100%; /* Make the footer span the full width of the viewport */
-}
-
-body {
-  font-family: 'Hammersmith One', sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f0f0f0;
-  display: flex; /* Use flexbox */
-  justify-content: center; /* Center content horizontally */
-  align-items: center; /* Center content vertically */
-  flex-direction: column; /* Arrange children vertically */
-  height: 100vh; /* Make the body fill the viewport height */
-}
-
-.container {
-  max-width: 800px;
-  padding: 20px;
-  margin-top: 50px; /* Add margin to push the container below the header */
-}
-
-
-
->>>>>>> Stashed changes
 .microphone {
   width: 15vw; /* 10% of the viewport width */
   height: auto; /* Maintain aspect ratio */
@@ -109,19 +36,12 @@ body {
   outline: none; /* Remove the button outline */
   position: absolute; /* Set position to absolute */
   top: 20%; /* Adjust the position as needed */
-  left: 80%; /* Adjust the position as needed */
-  z-index: 2; /* Ensure microphone is above description */
+  left: 50%; /* Center the microphone horizontally */
+  transform: translateX(-50%); /* Center the microphone horizontally */
 }
 
-.microphone img {
-  outline: none; /* Remove outline from the image */
+button {
+  border: none;
+  background: none;
 }
-<<<<<<< Updated upstream
-=======
-.microphone img {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: 5px;
-}
->>>>>>> Stashed changes
+
