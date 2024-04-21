@@ -5,10 +5,15 @@ body {
   margin: 0;
   padding: 0;
   background-color: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
+
 .container {
   max-width: 800px;
-  margin: 0 auto;
   padding: 20px;
 }
 
@@ -17,46 +22,35 @@ body {
   color: #fff;
   padding: 10px;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 15%;
+  width: 100%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.footer {
-  background-color: #333;
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px; /* Adjust margin as needed */
+}
+
+.button {
+  background-color: #007bff;
   color: #fff;
-  padding: 10px;
-  text-align: center;
-}
-body {
-  font-family: 'Hammersmith One', sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f0f0f0;
-  display: flex; /* Use flexbox */
-  justify-content: center; /* Center content horizontally */
-  align-items: center; /* Center content vertically */
-  height: 100vh; /* Make the body fill the viewport height */
-}
-
-.container {
-  max-width: 800px;
-  padding: 20px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .description {
-  display: flex; /* Use flexbox */
-  justify-content: center; /* Center content horizontally */
-  align-items: center; /* Center content vertically */
-  background-color: #f0f0f0; /* Background color */
-  border: 1px solid #ccc; /* Border */
-  border-radius: 5px; /* Border radius */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Box shadow */
-  padding: 10px; /* Add padding for better spacing */
+  text-align: center;
+  margin-top: 20px; /* Adjust margin as needed */
 }
 
-.description p {
-  font-size: 16px;
-  color: #333;
-  margin: 0; /* Remove default margin */
-}
 
 
 .microphone {
