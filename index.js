@@ -13,8 +13,8 @@ var options = {
 }
 
 //Imports first and second page comps
-// var FirstPage = require('static_files/js/firstpage.js')
-// var SecondPage = require('static_files/js/secondpage.js')
+var FirstPage = require('static_files/js/firstpage.js')
+var SecondPage = require('static_files/js/secondpage.js')
 app.set('view engine','hbs')
 
 // routes
