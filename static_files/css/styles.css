@@ -50,20 +50,3 @@ body {
   text-align: center;
   margin-top: 20px; /* Adjust margin as needed */
 }
-
-
-
-.microphone {
-  display: inline-block;
-    padding: 0; /* Remove default padding */
-    background-color: #ffffff; /* Transparent background */
-    border: none; /* Remove border */
-    cursor: pointer;
-    transition: opacity 0.3s ease; /* Smooth transition for opacity */
-}
-microphone img {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: 5px;
-}
