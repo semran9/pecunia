@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { ReactMic } from 'react-mic';
-import circularButtonImage from './circular-button.png'; // Import circular button image
+import circularButtonImage from '/static_files\images\sexy_man.png'; // Import circular button image
 
 const FirstPage = () => {
   const [isRecording, setIsRecording] = useState(false);
