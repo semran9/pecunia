@@ -38,7 +38,16 @@ app.post('/results', function(req,res ) {
       res.write(data);
       res.end('end');
   });
-  res.render('views/results')
+
+  fs.readFile('/data/transcript.txt', 'utf-8', (err, data) => {
+    if (err) {
+      console.error(err);
+      return;
+    }
+    console.log(data);
+  })
+  
+  res.render('results', )
 })
 
 const storage = multer.diskStorage({
