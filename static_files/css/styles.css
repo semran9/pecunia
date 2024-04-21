@@ -25,23 +25,39 @@ body {
   padding: 10px;
   text-align: center;
 }
+body {
+  font-family: 'Hammersmith One', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+  display: flex; /* Use flexbox */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  height: 100vh; /* Make the body fill the viewport height */
+}
+
+.container {
+  max-width: 800px;
+  padding: 20px;
+}
+
 .description {
-  width: 100%;
-  height: 100%; /* Height will be based on the aspect ratio */
-  display: flex;
+  display: flex; /* Use flexbox */
   justify-content: center; /* Center content horizontally */
   align-items: center; /* Center content vertically */
   background-color: #f0f0f0; /* Background color */
   border: 1px solid #ccc; /* Border */
   border-radius: 5px; /* Border radius */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Box shadow */
+  padding: 10px; /* Add padding for better spacing */
 }
+
 .description p {
-  font-family: 'Hammersmith One', sans-serif;
   font-size: 16px;
   color: #333;
-
+  margin: 0; /* Remove default margin */
 }
+
 
 .microphone {
   display: inline-block;
