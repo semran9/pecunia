@@ -5,7 +5,7 @@ url = "https://api.elevenlabs.io/v1/text-to-speech/VBHJi1EURb2fFADwRRjF"
 headers = {
   "Accept": "audio/mpeg",
   "Content-Type": "application/json",
-  "xi-api-key": "06fa7a2ee4a3b803f5fd902ba822d088"
+  "xi-api-key": ""
 }
 data = {
   "text": "Born and raised in the charming south, I can add a touch of sweet southern hospitality to your audiobooks and podcasts",
